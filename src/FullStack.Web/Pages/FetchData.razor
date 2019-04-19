@@ -1,5 +1,7 @@
 ﻿@page "/fetchdata"
-@inject HttpClient Http
+@using CommandQuery.Client
+@using FullStack.Contracts.Queries
+@inject IQueryClient QueryClient
 
 <h1>Weather forecast</h1>
 
@@ -39,17 +41,6 @@ else
 
     protected override async Task OnInitAsync()
     {
-        forecasts = await Http.GetJsonAsync<WeatherForecast[]>("sample-data/weather.json");
-    }
-
-    class WeatherForecast
-    {
-        public DateTime Date { get; set; }
-
-        public int TemperatureC { get; set; }
-
-        public int TemperatureF { get; set; }
-
-        public string Summary { get; set; }
+        forecasts = await QueryClient.GetAsync(new WeatherForecastQuery());
     }
 }
