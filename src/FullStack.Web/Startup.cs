@@ -8,6 +8,7 @@ namespace FullStack.Web
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ICommandClient>(provider => new CommandClient("https://fullstackfunctions.azurewebsites.net/api/command/"));
             services.AddSingleton<IQueryClient>(provider => new QueryClient("https://fullstackfunctions.azurewebsites.net/api/query/"));
         }
 

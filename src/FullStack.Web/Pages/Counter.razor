@@ -1,4 +1,9 @@
 ﻿@page "/counter"
+@using CommandQuery.Client
+@using FullStack.Contracts.Commands
+@using FullStack.Contracts.Queries
+@inject ICommandClient CommandClient
+@inject IQueryClient QueryClient
 
 <h1>Counter</h1>
 
@@ -9,8 +14,14 @@
 @functions {
     int currentCount = 0;
 
-    void IncrementCount()
+    protected override async Task OnInitAsync()
+    {
+        currentCount = await QueryClient.GetAsync(new CurrentCountQuery());
+    }
+
+    async Task IncrementCount()
     {
         currentCount++;
+        await CommandClient.PostAsync(new IncrementCountCommand());
     }
 }
