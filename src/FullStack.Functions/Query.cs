@@ -26,7 +26,7 @@ namespace FullStack.Functions
 
         private static IServiceCollection GetServiceCollection()
         {
-            var connectionString = GetEnvironmentVariable("ConnectionStrings:Cosmos");
+            var connectionString = GetEnvironmentVariable("CUSTOMCONNSTR_Cosmos");
 
             var services = new ServiceCollection();
             // Add handler dependencies
