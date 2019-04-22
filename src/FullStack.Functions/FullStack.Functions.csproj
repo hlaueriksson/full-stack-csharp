@@ -4,12 +4,8 @@
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
-    <EmbeddedResource Include="sample-data\weather.json">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="CommandQuery.AzureFunctions" Version="0.8.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.26" />
   </ItemGroup>
   <ItemGroup>
@@ -23,5 +19,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FullStack.Contracts\FullStack.Contracts.csproj" />
+    <ProjectReference Include="..\FullStack.Database\FullStack.Database.csproj" />
   </ItemGroup>
 </Project>

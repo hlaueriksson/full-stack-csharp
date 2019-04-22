@@ -1,17 +1,25 @@
 ﻿using System.Threading.Tasks;
 using CommandQuery;
 using FullStack.Contracts.Commands;
-using FullStack.Functions.Queries;
+using FullStack.Database;
+using FullStack.Database.Models;
 
 namespace FullStack.Functions.Commands
 {
     public class IncrementCountCommandHandler : ICommandHandler<IncrementCountCommand>
     {
-        public Task HandleAsync(IncrementCountCommand command)
-        {
-            CurrentCountQueryHandler.Count++;
+        private readonly ICloudTableRepository<Count> _countRepository;
 
-            return Task.CompletedTask;
+        public IncrementCountCommandHandler(ICloudTableRepository<Count> countRepository)
+        {
+            _countRepository = countRepository;
+        }
+
+        public async Task HandleAsync(IncrementCountCommand command)
+        {
+            var result = await _countRepository.RetrieveAsync(Count.Default) ?? Count.Default;
+            result.Value++;
+            await _countRepository.InsertOrMergeAsync(result);
         }
     }
 }

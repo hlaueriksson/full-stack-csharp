@@ -1,27 +1,31 @@
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using CommandQuery;
 using FullStack.Contracts.Queries;
-using Newtonsoft.Json;
+using FullStack.Database;
 
 namespace FullStack.Functions.Queries
 {
     public class WeatherForecastQueryHandler : IQueryHandler<WeatherForecastQuery, WeatherForecast[]>
     {
+        private readonly IWeatherForecastRepository _weatherForecastRepository;
+
+        public WeatherForecastQueryHandler(IWeatherForecastRepository weatherForecastRepository)
+        {
+            _weatherForecastRepository = weatherForecastRepository;
+        }
+
         public async Task<WeatherForecast[]> HandleAsync(WeatherForecastQuery query)
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = assembly.GetManifestResourceNames().Single(x => x.EndsWith("weather.json"));
+            var result = _weatherForecastRepository.All();
 
-            using (var stream = assembly.GetManifestResourceStream(resourceName))
-            using (var reader = new StreamReader(stream))
+            return result.Select(x => new WeatherForecast
             {
-                var json = await reader.ReadToEndAsync();
-
-                return JsonConvert.DeserializeObject<WeatherForecast[]>(json);
-            }
+                Date = x.Date,
+                TemperatureC = x.TemperatureC,
+                TemperatureF = x.TemperatureF,
+                Summary = x.Summary
+            }).ToArray();
         }
     }
 }
