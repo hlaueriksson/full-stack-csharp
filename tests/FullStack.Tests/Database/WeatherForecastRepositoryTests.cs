@@ -7,7 +7,7 @@ using FullStack.Database.Models;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace FullStack.Tests
+namespace FullStack.Tests.Database
 {
     public class WeatherForecastRepositoryTests
     {
