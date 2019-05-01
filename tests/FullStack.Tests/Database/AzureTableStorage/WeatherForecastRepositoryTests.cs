@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using FullStack.Database;
-using FullStack.Database.Models;
+using FullStack.Database.AzureTableStorage;
+using FullStack.Database.AzureTableStorage.Models;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace FullStack.Tests.Database
+namespace FullStack.Tests.Database.AzureTableStorage
 {
     public class WeatherForecastRepositoryTests
     {

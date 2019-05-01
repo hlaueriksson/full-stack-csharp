@@ -2,7 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CommandQuery;
 using FullStack.Contracts.Queries;
-using FullStack.Database;
+using FullStack.Database.AzureTableStorage;
 
 namespace FullStack.Functions.Queries
 {

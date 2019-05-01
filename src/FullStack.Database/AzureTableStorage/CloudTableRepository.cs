@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.Azure.Cosmos.Table;
 
-namespace FullStack.Database
+namespace FullStack.Database.AzureTableStorage
 {
     public interface ICloudTableRepository<T> where T : TableEntity
     {

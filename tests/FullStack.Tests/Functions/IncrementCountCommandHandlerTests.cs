@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using FullStack.Contracts.Commands;
-using FullStack.Database;
-using FullStack.Database.Models;
+using FullStack.Database.AzureTableStorage;
+using FullStack.Database.AzureTableStorage.Models;
 using FullStack.Functions.Commands;
 using NSubstitute;
 using NUnit.Framework;

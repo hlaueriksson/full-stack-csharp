@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using CommandQuery;
 using FullStack.Contracts.Commands;
-using FullStack.Database;
-using FullStack.Database.Models;
+using FullStack.Database.AzureTableStorage;
+using FullStack.Database.AzureTableStorage.Models;
 
 namespace FullStack.Functions.Commands
 {

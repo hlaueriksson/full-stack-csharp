@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using FullStack.Database.Models;
+using FullStack.Database.AzureTableStorage.Models;
 using Microsoft.Azure.Cosmos.Table;
 
-namespace FullStack.Database
+namespace FullStack.Database.AzureTableStorage
 {
     public interface IWeatherForecastRepository : ICloudTableRepository<WeatherForecast>
     {

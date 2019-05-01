@@ -3,11 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
 using FullStack.Contracts.Queries;
-using FullStack.Database;
+using FullStack.Database.AzureTableStorage;
 using FullStack.Functions.Queries;
 using NSubstitute;
 using NUnit.Framework;
-using WeatherForecast = FullStack.Database.Models.WeatherForecast;
+using WeatherForecast = FullStack.Database.AzureTableStorage.Models.WeatherForecast;
 
 namespace FullStack.Tests.Functions
 {

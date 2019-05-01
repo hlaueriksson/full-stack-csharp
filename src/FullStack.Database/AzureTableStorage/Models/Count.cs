@@ -1,6 +1,6 @@
 ﻿using Microsoft.Azure.Cosmos.Table;
 
-namespace FullStack.Database.Models
+namespace FullStack.Database.AzureTableStorage.Models
 {
     public class Count : TableEntity
     {
